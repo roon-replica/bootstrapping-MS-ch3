@@ -25,7 +25,17 @@
     -f: follow log output
     -n: --tail 
     docker run할 때 -p 덕분에 `localhost:<host-port>/video`로 접근해서 비디오 잘 나오는지 확인 가능!
-  
+
+- 도커 레지스트리
+  - MS 애저 쓰기 싫어서 aws EC2에 개인 도커 레지스트리 만듦
+    - [참고](https://junhyunny.github.io/information/docker/install-docker-registry-on-ec2/)
+    - [colima 사용 시 insecure-registries 설정 방법](https://github.com/abiosoft/colima/issues/225)
+  - `docker tag <source_image> <target_image>`
+  - `docker push <registy-url>/<image-name>:<version>`
+  - `docker pull <image-name>[:tag]`  
+  ![docker registry](./example-1/docker_registry.png)
+  - 레지스트리에서 바로 실행하기!!!  
+  `docker run -d -p <host_port>:<container_port> <registry_url>/<image_name>:<version>`
 
 
 # Chapter-3
